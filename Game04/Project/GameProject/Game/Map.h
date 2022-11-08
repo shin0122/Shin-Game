@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Base/Base.h"
+#include "GameData.h"
 
 #define MAP_WIDTH       40
 #define MAP_HEIGHT      22

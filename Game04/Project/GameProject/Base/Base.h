@@ -7,10 +7,9 @@ enum {
 	eType_Player_Bullet,
 	eType_Enemy_Bullet,
 	eType_Goal,
-	eType_Effect,
 	eType_UI,
+	eType_Effect,
 	eType_Scene,
-	eType_Bane,
 };
 
 //èdóÕâ¡ë¨ìx

@@ -1,6 +1,5 @@
 #include "Player.h"
 #include "Bullet.h"
-#include "Bane.h"
 #include "Map.h"
 Player::Player(const CVector2D& pos)
     :Base(eType_Player)

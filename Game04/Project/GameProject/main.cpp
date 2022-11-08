@@ -1,18 +1,19 @@
 //ゲーム係機能のインクルード
 #include <GLLibrary.h>
 #define SCREEN_WIDTH 1280  
-#define SCREEN_HEIGHT 940 
+#define SCREEN_HEIGHT 720 
 
 #include "Base/Base.h"
 #include "Game/Player.h"
 //#include "Game/Enemy.h"
 #include "Game/Bullet.h"
+#include"Game/UI.h"
 #include "Game/Map.h"
 
 //--------------------------------------------
 //グローバル変数領域
 //--------------------------------------------
-int Tipnumber = 3;
+
 
 
 
@@ -26,12 +27,7 @@ void MainLoop(void) {
 	Base::CollisionAll();
 	Base::DrawAll();
 
-	Base* b = Base::FindObject(eType_Field);
-	if (Map* m = dynamic_cast<Map*>(b)) {
-		CVector2D pos = CInput::GetMousePoint();
-		//m->SetTip(pos, Tipnumber);
-
-	}
+	
 }
 void Init(void)
 {
@@ -75,15 +71,16 @@ void Init(void)
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
 	ADD_RESOURCE("Bullet2", CImage::CreateImage("Image/Bullet2.png"));
 	ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
-	ADD_RESOURCE("Bane", CImage::CreateImage("Image/Bane.png"));
     //プレイヤーの生成
-	Base::Add(new Player(CVector2D(20 * 3, 0 * 4)));//32
+	Base::Add(new Player(CVector2D(15 * 3, 0 * 4)));//32
 
 	//Base::Add(new Enemy(CVector2D(32 * 3,32 * 8)));
 	//Base::Add(new Enemy(CVector2D(32 * 17, 32 * 14)));
 	//Base::Add(new Enemy(CVector2D(32 * 37, 32 * 10)));
 	//マップの生成
 	Base::Add(new Map());
+	//UIの生成
+	Base::Add(new UI1());
 	
 	
 
