@@ -9,6 +9,7 @@
 #include "Game/Bullet.h"
 #include"Game/UI.h"
 #include "Game/Map.h"
+#include "Game/Goal.h"
 
 //--------------------------------------------
 //グローバル変数領域
@@ -71,8 +72,9 @@ void Init(void)
 	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
 	ADD_RESOURCE("Bullet2", CImage::CreateImage("Image/Bullet2.png"));
 	ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
+	ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
     //プレイヤーの生成
-	Base::Add(new Player(CVector2D(15 * 3, 0 * 4)));//32
+	Base::Add(new Player(CVector2D(17 * 3, 0 * 4)));//32
 
 	//Base::Add(new Enemy(CVector2D(32 * 3,32 * 8)));
 	//Base::Add(new Enemy(CVector2D(32 * 17, 32 * 14)));
@@ -81,6 +83,7 @@ void Init(void)
 	Base::Add(new Map());
 	//UIの生成
 	Base::Add(new UI1());
+	Base::Add(new Goal(CVector2D(3000, 540 - 64)));
 	
 	
 
