@@ -19,7 +19,7 @@ static int stage1data[MAP_HEIGHT][MAP_WIDTH] = {
 	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 	{ 1,1,1,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,1},
-	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0},
+	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1},
 	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0},
 	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
 	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -53,6 +53,8 @@ Map::Map() : Base(eType_Field)
 
 
 	m_img = COPY_RESOURCE("MapTip", CImage);
+	memcpy(stagedata_base,stage1data,sizeof(stagedata_base));
+	memcpy(stagedata,stage1data,sizeof(stagedata));
 }
 
 void Map::Draw()
@@ -61,8 +63,8 @@ void Map::Draw()
 	for (int i = 0; i < MAP_HEIGHT; i++) {
 		for (int j = 0; j < MAP_WIDTH; j++) {
 			//表示しない制御
-			if (stage1data[i][j] == 0)continue;
-			int t = stage1data[i][j];
+			if (stagedata[i][j] == 0)continue;
+			int t = stagedata[i][j];
 			//画像切り抜き
 			m_img.SetRect(32*t, 0, 32*t + 32, 32);
 			//表示サイズ設定
@@ -91,7 +93,26 @@ int Map::GetTip(const CVector2D& pos)
 }
 int Map::GetTip(int col, int raw)
 {
-	return stage1data[raw][col];
+	return stagedata[raw][col];
+}
+int Map::GetTipB(const CVector2D& pos)
+{
+	//列を計算
+	int col = pos.x / MAP_TIP_SIZE;
+	//列の制限(0～MAP_TIP_SIZE)
+	if (col < 0)col = 0;
+	if (col > MAP_WIDTH - 1)col = MAP_WIDTH - 1;
+	//行を計算
+	int raw = pos.y / MAP_TIP_SIZE;
+	//行の制限(0～MAP_HEIGHT-1)
+	if (raw < 0)raw = 0;
+	if (raw > MAP_HEIGHT - 1)raw = MAP_HEIGHT - 1;
+	//チップデータを返却
+	return GetTipB(col, raw);
+}
+int Map::GetTipB(int col, int raw)
+{
+	return stagedata_base[raw][col];
 }
 void Map::SetTip(const CVector2D& pos, int t)
 {
@@ -105,7 +126,7 @@ void Map::SetTip(const CVector2D& pos, int t)
 	//行の制限(0～MAP_HEIGHT-1)
 	if (raw < 0)raw = 0;
 	if (raw > MAP_HEIGHT - 1)raw = MAP_HEIGHT - 1;
-	stage1data[raw][col] = t;
+	stagedata[raw][col] = t;
 }
 int Map::CollisionMap(const CVector2D& pos)
 {

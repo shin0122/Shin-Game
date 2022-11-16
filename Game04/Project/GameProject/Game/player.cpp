@@ -17,7 +17,7 @@ Player::Player(const CVector2D& pos)
 void Player::Update()
 {
     m_pos_old = m_pos;
-    const float speed = 4;
+    //const float speed = 4;
     /*è„Ç…à⁄ìÆ
     if(HOLD(CInput::eUp))
         m_pos.y -= speed;
