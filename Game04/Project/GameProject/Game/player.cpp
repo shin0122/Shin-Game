@@ -13,10 +13,13 @@ Player::Player(const CVector2D& pos)
     //”¼Œa
     m_rad = 16;
     m_vec.x = 4;
+    m_start = false;
 }
 void Player::Update()
 {
     m_pos_old = m_pos;
+    if (m_start == false)
+    return;
     //const float speed = 4;
     /*ã‚ÉˆÚ“®
     if(HOLD(CInput::eUp))
@@ -48,18 +51,18 @@ void Player::Collision(Base* b)
     switch (b->m_type) {
     case eType_Field:
         if (Map* m = dynamic_cast<Map*>(b)) {
-            int t = m->CollisionMap(CVector2D(m_pos.x, m_pos_old.y),m_rect);
+            int t = m->CollisionMap(CVector2D(m_pos.x, m_pos_old.y), m_rect);
             if (t != 0) {
                 m_pos.x = m_pos_old.x;
                 m_vec.x *= -1;
             }
-            t = m->CollisionMap(CVector2D(m_pos_old.x, m_pos.y),m_rect);
+            t = m->CollisionMap(CVector2D(m_pos_old.x, m_pos.y), m_rect);
             if (t != 0) {
                 m_pos.y = m_pos_old.y;
                 m_vec.y = 0;
             }
+
         }
-        break;
     }
 }
 void Player::Draw() {

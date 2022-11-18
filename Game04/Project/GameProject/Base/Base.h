@@ -8,6 +8,7 @@ enum {
 	eType_Enemy_Bullet,
 	eType_Goal,
 	eType_UI,
+	eType_UI2,
 	eType_Effect,
 	eType_Scene,
 };

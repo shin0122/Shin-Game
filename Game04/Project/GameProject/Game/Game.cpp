@@ -10,10 +10,7 @@
 Game::Game() :Base(eType_Scene)
 {
 	//Base::Add(new Field());
-	Base::Add(new Map());
-	Base::Add(new UI1());
-	
-	
+
 	
 }
 Game::~Game()

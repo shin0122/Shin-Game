@@ -74,15 +74,18 @@ void Init(void)
 	ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
     //プレイヤーの生成
-	Base::Add(new Player(CVector2D(17 * 3, 0 * 4)));//32
+	Base::Add(new Player(CVector2D(60,-16)));//16
 
 	//Base::Add(new Enemy(CVector2D(32 * 3,32 * 8)));
 	//Base::Add(new Enemy(CVector2D(32 * 17, 32 * 14)));
 	//Base::Add(new Enemy(CVector2D(32 * 37, 32 * 10)));
+	
 	//マップの生成
 	Base::Add(new Map());
 	//UIの生成
 	Base::Add(new UI1());
+	Base::Add(new UI2());
+	//ゴールの生成
 	Base::Add(new Goal(CVector2D(3000, 540 - 64)));
 	
 	
