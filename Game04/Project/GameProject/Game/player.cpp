@@ -9,10 +9,10 @@ Player::Player(const CVector2D& pos)
     //’†S‚ğİ’è
     m_img.SetCenter(16, 16);
     //‹éŒ`‚ğİ’è
-    m_rect = CRect(-16,-16,16,16);
+    m_rect = CRect(-14,-14,14,14);
     //”¼Œa
-    m_rad = 16;
-    m_vec.x = 4;
+    m_rad = 14;
+    m_vec.x = 6;
     m_start = false;
 }
 void Player::Update()
@@ -20,6 +20,7 @@ void Player::Update()
     m_pos_old = m_pos;
     if (m_start == false)
     return;
+    
     //const float speed = 4;
     /*ã‚ÉˆÚ“®
     if(HOLD(CInput::eUp))
