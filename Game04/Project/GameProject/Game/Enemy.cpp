@@ -14,15 +14,15 @@ void Enemy::Update()
 
 	Base* b = Base::FindObject(eType_Player);
 
-	 if(b) {
+	if (b) {
 
-		 CVector2D vec = b->m_pos - m_pos;
-		 m_ang = atan2(vec.x, vec.y);
-		 if (m_cnt >= 120) {
-			 Base::Add(new Bullet(eType_Enemy_Bullet, m_pos, m_ang, 4));
-			 m_cnt = 0;
+		CVector2D vec = b->m_pos - m_pos;
+		m_ang = atan2(vec.x, vec.y);
+		if (m_cnt >= 120) {
+			Base::Add(new Bullet(eType_Enemy_Bullet, m_pos, m_ang, 4));
+			m_cnt = 0;
 
-		 }
+		}
 	}
 
 }
