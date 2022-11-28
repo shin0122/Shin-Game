@@ -1,6 +1,8 @@
 #include "Player.h"
 #include "Bullet.h"
 #include "Map.h"
+#include "UI.h"
+
 Player::Player(const CVector2D& pos)
     :Base(eType_Player)
 {
@@ -17,8 +19,8 @@ Player::Player(const CVector2D& pos)
 }
 void Player::Update()
 {
-    
     m_pos_old = m_pos;
+
     if (m_start == false)
     return;
     

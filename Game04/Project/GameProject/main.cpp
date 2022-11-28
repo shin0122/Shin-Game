@@ -74,7 +74,7 @@ void Init(void)
 	ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
     //ÉvÉåÉCÉÑÅ[ÇÃê∂ê¨
-	Base::Add(new Player(CVector2D(60,16)));//(60,-16)
+	Base::Add(new Player(CVector2D(60,16)));//-16
 
 	//Base::Add(new Enemy(CVector2D(32 * 3,32 * 8)));
 	//Base::Add(new Enemy(CVector2D(32 * 17, 32 * 14)));
