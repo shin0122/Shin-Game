@@ -23,29 +23,22 @@ void Player::Update()
 
     if (m_start == false)
     return;
-    
-    
-    //const float speed = 4;
-    /*上に移動
-    if(HOLD(CInput::eUp))
-        m_pos.y -= speed;
-    //下に移動
-    if (HOLD(CInput::eDown))
-        m_pos.y += speed;
-     */
 
-    
     if (m_is_ground && m_vec.y > GRAVITY * 4)
         m_is_ground = false;
+
     //重力による落下
     m_vec.y += GRAVITY;
     m_pos += m_vec;
- 
-    
+
+    //スクロール設定
+  // m_scroll.x = m_pos.x - 1280 / 2;
+   //m_scroll.y = m_pos.y - 600;
+
     //マウスのベクトル
-    CVector2D vec = CInput::GetMousePoint() - m_pos;
+   // CVector2D vec = CInput::GetMousePoint() - m_pos;
     //回転値を逆算
-    m_ang = atan2(vec.x, vec.y);
+   // m_ang = atan2(vec.x, vec.y);
 
     if (PUSH(CInput::eMouseL)) {
         Base::Add(new Bullet(eType_Player_Bullet, m_pos, m_ang, 4));
@@ -54,6 +47,13 @@ void Player::Update()
 void Player::Collision(Base* b)
 {
     switch (b->m_type) {
+        //ゴール判定
+    case eType_Goal:
+        if (Base::CollisionRect(this, b)) {
+            b->SetKill();
+        }
+        break;
+
     case eType_Field:
         if (Map* m = dynamic_cast<Map*>(b)) {
             int t = m->CollisionMap(CVector2D(m_pos.x, m_pos_old.y), m_rect);

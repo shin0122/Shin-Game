@@ -73,6 +73,9 @@ void Init(void)
 	ADD_RESOURCE("Bullet2", CImage::CreateImage("Image/Bullet2.png"));
 	ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
+	ADD_RESOURCE("GameClear", CImage::CreateImage("Image/Clear.png"));
+	ADD_RESOURCE("GameOver", CImage::CreateImage("Image/Over.png"));
+	
     //プレイヤーの生成
 	Base::Add(new Player(CVector2D(60,-16)));
 
@@ -87,16 +90,7 @@ void Init(void)
 	Base::Add(new UI2());
 	//ゴールの生成
 	Base::Add(new Goal(CVector2D(3000, 540 - 64)));
-	
-	
-
-
-
-
-
-
 }
-
 
 void Release()
 {

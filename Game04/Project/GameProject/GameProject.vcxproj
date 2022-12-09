@@ -21,6 +21,8 @@
     <ClCompile Include="Game\player.cpp" />
     <ClCompile Include="Game\UI.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Title\GameClear.cpp" />
+    <ClCompile Include="Title\GameOver.cpp" />
     <ClCompile Include="Title\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -33,6 +35,8 @@
     <ClInclude Include="Game\Map.h" />
     <ClInclude Include="Game\player.h" />
     <ClInclude Include="Game\UI.h" />
+    <ClInclude Include="Title\GameClear.h" />
+    <ClInclude Include="Title\GameOver.h" />
     <ClInclude Include="Title\Title.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

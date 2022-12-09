@@ -38,9 +38,6 @@ public:
 	bool m_kill;
 	//スクロール値
 	static CVector2D m_scroll;
-	//スタート
-	bool m_start;
-
 	//オブジェクトリスト
 	static std::list<Base*> m_list;
 public:
