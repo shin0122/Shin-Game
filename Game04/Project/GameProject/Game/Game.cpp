@@ -10,7 +10,6 @@
 
 Game::Game() :Base(eType_Scene)
 {
-
 }
 Game::~Game()
 {
@@ -33,8 +32,8 @@ void Game::Update()
 		GameClear_flag == true;
 	}
 	//リセットされる（タイトルに行くと）
-	//プレイヤー死亡　ボタン１でゲームシーン終了
-	else if (!Base::FindObject(eType_Player)) {
+	//プレイヤー死亡　Zでゲームシーン終了
+	else if (GameData::time == 1 ) {
 		if (GameOver_flag == false) {
 			//一度だけ呼び出す
 			Base::Add(new GameOver);
@@ -42,5 +41,10 @@ void Game::Update()
 		if (PUSH(CInput::eButton1))
 			SetKill();
 		GameOver_flag == true;
+		//if (PUSH(CInput::eButton2))
+	}
+	//0秒になったら
+	else if (GameData::time == 0 && (PUSH(CInput::eButton1))) {
+		SetKill();
 	}
 }

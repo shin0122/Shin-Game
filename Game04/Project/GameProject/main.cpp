@@ -7,15 +7,14 @@
 #include "Game/Player.h"
 //#include "Game/Enemy.h"
 #include "Game/Bullet.h"
-#include"Game/UI.h"
+#include "Game/UI.h"
 #include "Game/Map.h"
 #include "Game/Goal.h"
+#include "Game/game.h"
 
 //--------------------------------------------
 //グローバル変数領域
 //--------------------------------------------
-
-
 
 
 void MainLoop(void) {
@@ -27,12 +26,9 @@ void MainLoop(void) {
 	Base::UpdateAll();
 	Base::CollisionAll();
 	Base::DrawAll();
-
-	
 }
 void Init(void)
 {
-
 	CFPS::SetFPS(60);
 	//フレーム制御初期化
 	CFPS::Init();
@@ -86,10 +82,12 @@ void Init(void)
 	//マップの生成
 	Base::Add(new Map());
 	//UIの生成
+	Base::Add(new UI());
 	Base::Add(new UI1());
 	Base::Add(new UI2());
 	//ゴールの生成
-	Base::Add(new Goal(CVector2D(3000, 540 - 64)));
+	Base::Add(new Goal(CVector2D(1250,680)));
+	Base::Add(new Game());
 }
 
 void Release()
@@ -146,7 +144,6 @@ void CheckFullScreen() {
 		GL::ChangeFullScreen(!GL::full_screen);
 	}
 }
-
 int __main(int* argcp, char** argv) {
 	// メモリリーク検出
 	//	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF | _CRTDBG_CHECK_ALWAYS_DF);
