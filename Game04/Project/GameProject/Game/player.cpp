@@ -50,8 +50,8 @@ void Player::Collision(Base* b)
             b->SetKill();
         }
         break;
-        //--------------------------
-        //マップチップの設定
+
+        //マップチップの設定--------------------------
     case eType_Field:
         if (Map* m = dynamic_cast<Map*>(b)) {
             int t = m->CollisionMap(CVector2D(m_pos.x, m_pos_old.y), m_rect);
@@ -66,7 +66,7 @@ void Player::Collision(Base* b)
             }
             else if (t == 4) {
                 m_pos.y = m_pos_old.y;
-                m_vec.y = +12;
+                m_vec.y = -18;
             }
             else if (t != 0) {
                 m_pos.y = m_pos_old.y;
