@@ -6,7 +6,7 @@
 #include "Base/Base.h"
 #include "Game/Player.h"
 //#include "Game/Enemy.h"
-#include "Game/Bullet.h"
+//#include "Game/Bullet.h"
 #include "Game/UI.h"
 #include "Game/Map.h"
 #include "Game/Goal.h"
@@ -65,8 +65,8 @@ void Init(void)
 	//âÊëúì«Ç›çûÇ›
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/ball.png"));
 	//ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png"));
-	ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
-	ADD_RESOURCE("Bullet2", CImage::CreateImage("Image/Bullet2.png"));
+	//ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
+	//ADD_RESOURCE("Bullet2", CImage::CreateImage("Image/Bullet2.png"));
 	ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
 	ADD_RESOURCE("GameClear", CImage::CreateImage("Image/Clear.png"));

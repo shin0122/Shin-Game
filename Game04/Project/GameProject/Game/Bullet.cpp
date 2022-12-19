@@ -1,3 +1,4 @@
+/*
 #include "Bullet.h"
 #include "Map.h"
 Bullet::Bullet(int type, const CVector2D& pos, float ang, float speed)
@@ -48,3 +49,4 @@ void Bullet::Collision(Base* b)
 		break;
 	}
 }
+*/

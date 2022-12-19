@@ -35,10 +35,11 @@ void Player::Update()
    // CVector2D vec = CInput::GetMousePoint() - m_pos;
     //‰ñ“]’l‚ð‹tŽZ
    // m_ang = atan2(vec.x, vec.y);
-    
+    /*
     if (PUSH(CInput::eMouseL)) {
         Base::Add(new Bullet(eType_Player_Bullet, m_pos, m_ang, 4));
     }
+    */
 }
 
 void Player::Collision(Base* b)
@@ -66,7 +67,7 @@ void Player::Collision(Base* b)
             }
             else if (t == 4) {
                 m_pos.y = m_pos_old.y;
-                m_vec.y = -18;
+                m_vec.y = +12;
             }
             else if (t != 0) {
                 m_pos.y = m_pos_old.y;

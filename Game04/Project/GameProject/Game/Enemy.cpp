@@ -13,7 +13,7 @@ void Enemy::Update()
 	m_cnt++;
 
 	Base* b = Base::FindObject(eType_Player);
-
+	/*
 	if (b) {
 
 		CVector2D vec = b->m_pos - m_pos;
@@ -24,6 +24,7 @@ void Enemy::Update()
 
 		}
 	}
+	*/
 
 }
 void Enemy::Collision(Base* b)

@@ -1,4 +1,5 @@
 #pragma once
+/*
 #include "../Base/Base.h"
 
 class Bullet: public Base {
@@ -10,3 +11,4 @@ public:
 	void Draw();
 	void Collision(Base* b);
 };
+*/
