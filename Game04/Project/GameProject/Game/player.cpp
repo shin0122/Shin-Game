@@ -69,6 +69,9 @@ void Player::Collision(Base* b)
                 m_pos.y = m_pos_old.y;
                 m_vec.y = +12;
             }
+            else if (t == 5) {
+                SetKill();
+            }
             else if (t != 0) {
                 m_pos.y = m_pos_old.y;
                 m_vec.y = 0;

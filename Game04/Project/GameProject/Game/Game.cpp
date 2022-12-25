@@ -33,6 +33,16 @@ void Game::Update()
 	}
 	//リセットされる（タイトルに行くと）
 	//プレイヤー死亡　Zでゲームシーン終了
+	else if (!Base::FindObject(eType_Player)) {
+		if (GameOver_flag == false) {
+			Base::Add(new GameOver);
+		}
+		if (PUSH(CInput::eButton1))
+			SetKill();
+		GameOver_flag == true;
+		//if (PUSH(CInput::eButton2))
+	}
+	//時間切れ　Zでゲームシーン終了
 	else if (GameData::time == 1 ) {
 		if (GameOver_flag == false) {
 			//一度だけ呼び出す
