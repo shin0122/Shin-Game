@@ -11,6 +11,8 @@ enum {
 	eType_UI2,
 	eType_Effect,
 	eType_Scene,
+	eType_GameClear,
+	eType_GameOver,
 };
 
 //d—Í‰Á‘¬“x

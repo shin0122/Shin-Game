@@ -7,10 +7,11 @@
 #include "Game/Player.h"
 //#include "Game/Enemy.h"
 //#include "Game/Bullet.h"
+#include "Title/Title.h"
 #include "Game/UI.h"
 #include "Game/Map.h"
 #include "Game/Goal.h"
-#include "Game/game.h"
+#include "Game/Game.h"
 
 //--------------------------------------------
 //グローバル変数領域
@@ -67,27 +68,16 @@ void Init(void)
 	//ADD_RESOURCE("Enemy", CImage::CreateImage("Image/Enemy.png"));
 	//ADD_RESOURCE("Bullet", CImage::CreateImage("Image/Bullet.png"));
 	//ADD_RESOURCE("Bullet2", CImage::CreateImage("Image/Bullet2.png"));
+	ADD_RESOURCE("Title", CImage::CreateImage("Image/Title.png"));
 	ADD_RESOURCE("MapTip", CImage::CreateImage("Image/MapTip.png"));
 	ADD_RESOURCE("Goal", CImage::CreateImage("Image/Goal.png"));
 	ADD_RESOURCE("GameClear", CImage::CreateImage("Image/Clear.png"));
 	ADD_RESOURCE("GameOver", CImage::CreateImage("Image/Over.png"));
-	
-    //プレイヤーの生成
-	Base::Add(new Player(CVector2D(60,-16)));
-
 	//Base::Add(new Enemy(CVector2D(32 * 3,32 * 8)));
 	//Base::Add(new Enemy(CVector2D(32 * 17, 32 * 14)));
 	//Base::Add(new Enemy(CVector2D(32 * 37, 32 * 10)));
-	
-	//マップの生成
-	Base::Add(new Map());
-	//UIの生成
-	Base::Add(new UI());
-	Base::Add(new UI1());
-	Base::Add(new UI2());
-	//ゴールの生成
-	Base::Add(new Goal(CVector2D(1250,680)));
-	Base::Add(new Game());
+	//タイトルの生成
+	Base::Add(new Title());
 }
 
 void Release()

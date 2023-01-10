@@ -5,18 +5,27 @@
 #include "GameData.h"
 #include "UI.h"
 #include "Goal.h"
+#include"../Title/Title.h"
 #include"../Title/Gameclear.h"
 #include"../Title/GameOver.h"
 
-Game::Game() :Base(eType_Scene)
+Game::Game():Base(eType_Scene)
 {
+	//プレイヤーの生成
+	Base::Add(new Player(CVector2D(60, -16)));
+	//マップの生成
+	Base::Add(new Map(GameData::stage));
+	//UIの生成
+	Base::Add(new UI());
+	Base::Add(new UI1());
+	Base::Add(new UI2());
 }
 Game::~Game()
 {
 	//すべてのオブジェクトの破棄
 	Base::KillAll();
 	//タイトルシーンへ
-	//Base::Add(new Title());
+	Base::Add(new Title());
 }
 void Game::Update()
 {

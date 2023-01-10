@@ -13,7 +13,7 @@ private:
 	int stagedata[MAP_HEIGHT][MAP_WIDTH];
 	int stagedata_base[MAP_HEIGHT][MAP_WIDTH];
 public:
-	Map();
+	Map(int stage);
 	void Draw();
 	//指定座標のチップ番号を取得
 	int GetTipB(const CVector2D& pos);
